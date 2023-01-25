@@ -9,12 +9,14 @@ import {
 import { storage } from '@/utils/firebase'
 import { useEffect, useState } from 'react'
 import ModalPhoto from './modalPhoto'
+import Image from 'next/image'
 
 interface Props {
     detail: {
         name: string
         title: string
         description: string
+        longText: string
     }
 }
 
@@ -40,9 +42,11 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
         <>
             <div className="flex flex-col xl:flex-row shadow hover:shadow-md w-3/5 bg-white rounded-lg overflow-hidden">
                 {photo && (
-                    <img
+                    <Image
                         className="object-cover w-1/2"
                         src={photo}
+                        width={500}
+                        height={500}
                         alt="Flower and sky"
                     />
                 )}
@@ -64,7 +68,7 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
             <div
                 className={`${show} fixed w-screen h-screen flex justify-center items-center top-0 left-0 bg-black/50`}
             >
-                <div className="w-full h-full container p-8 flex flex-col items-center justify-between overflow-auto">
+                <div className="w-full h-full container p-8 flex flex-col gap-8 items-center justify-between overflow-auto">
                     <button
                         onClick={() => setShow('hidden')}
                         type="button"
@@ -85,7 +89,8 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                             </g>
                         </svg>
                     </button>
-                    <div className="mt-8 grid grid-cols-2 gap-2 rounded-xl bg-white p-2 lg:grid-cols-4 w-full">
+                    <p className="rounded-xl bg-white p-2">{detail.longText}</p>
+                    <div className="grid grid-cols-2 gap-2 rounded-xl bg-white p-2 lg:grid-cols-4 w-full">
                         {gallery &&
                             gallery.map((item, index) => (
                                 <div
