@@ -1,10 +1,24 @@
 @tailwind base;
 
 /* Custom Style */
+
 @media (min-width: 768px) {
     main {
         background-image: url('/images/desktop-background.jpg');
     }
+}
+
+/* Scrollbar styles */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 @tailwind components;

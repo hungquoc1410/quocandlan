@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Roboto } from '@next/font/google'
 import Clock from '@/components/clock'
+import Timeline from '@/components/timeline'
 
 const roboto = Roboto({
     weight: '400',
@@ -22,12 +23,15 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className={`bg-center bg-cover ${roboto.className}`}>
-                <div className="w-screen h-screen flex justify-center items-center bg-black/50">
+            <main className={`bg-center bg-cover overflow-auto ${roboto.className}`}>
+                <section className="w-screen h-screen flex flex-col justify-center items-center bg-black/50">
                     <div className="w-full h-full flex justify-center items-center container">
                         <Clock />
                     </div>
-                </div>
+                </section>
+                <section className="w-full bg-gray-200 flex">
+                    <Timeline />
+                </section>
             </main>
         </>
     )
