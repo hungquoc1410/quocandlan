@@ -23,13 +23,13 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className={`bg-center bg-cover overflow-auto ${roboto.className}`}>
+            <main className={`bg-fixed bg-center bg-cover ${roboto.className}`}>
                 <section className="w-screen h-screen flex flex-col justify-center items-center bg-black/50">
                     <div className="w-full h-full flex justify-center items-center container">
                         <Clock />
                     </div>
                 </section>
-                <section className="w-full bg-gray-200 flex">
+                <section className="w-full bg-gray-200 flex justify-center items-center">
                     <Timeline />
                 </section>
             </main>
