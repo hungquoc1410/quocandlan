@@ -8,6 +8,12 @@
     }
 }
 
+@media (max-width: 768px) {
+    main {
+        background-image: url('/images/mobile-background.jpg');
+    }
+}
+
 /* Scrollbar styles */
 
 /* Hide scrollbar for Chrome, Safari and Opera */

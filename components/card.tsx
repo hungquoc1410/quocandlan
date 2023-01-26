@@ -40,17 +40,17 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
 
     return (
         <>
-            <div className="flex flex-col xl:flex-row shadow hover:shadow-md w-3/5 bg-white rounded-lg">
+            <div className="flex flex-col xl:flex-row shadow hover:shadow-md w-11/12 xl:w-3/5 bg-white rounded-lg">
                 {photo && (
                     <Image
-                        className="object-cover w-1/2"
+                        className="object-cover w-full xl:w-1/2"
                         src={photo}
                         width={500}
                         height={500}
                         alt="Flower and sky"
                     />
                 )}
-                <div className="relative w-1/2 p-4 overflow-hidden">
+                <div className="relative w-full xl:w-1/2 p-4">
                     <h3 className="text-base md:text-xl font-medium text-gray-800">
                         {detail.title}
                     </h3>
@@ -66,9 +66,9 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                 </div>
             </div>
             <div
-                className={`${show} fixed w-screen h-screen flex justify-center items-center top-0 left-0 bg-black/50 z-10`}
+                className={`${show} fixed w-screen h-screen flex justify-center items-center top-0 bottom-0 left-0 right-0 bg-black/50 z-10`}
             >
-                <div className="w-full h-full container p-8 flex flex-col gap-2 items-center overflow-auto bg-white">
+                <div className="relative w-full h-full container p-8 flex flex-col gap-2 items-center overflow-auto bg-white">
                     <button
                         onClick={() => setShow('hidden')}
                         type="button"
@@ -105,7 +105,7 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                     </div>
                     <button
                         onClick={() => setShow('hidden')}
-                        className="mt-4 py-2 px-3 rounded-lg bg-gray-500 hover:bg-gray-600 font-bold text-white shadow transition ease-in-out duration-200 translate-10"
+                        className="py-2 px-3 rounded-lg bg-gray-500 hover:bg-gray-600 font-bold text-white shadow transition ease-in-out duration-200 translate-10"
                     >
                         Close
                     </button>
