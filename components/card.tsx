@@ -40,7 +40,7 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
 
     return (
         <>
-            <div className="flex flex-col xl:flex-row shadow hover:shadow-md w-3/5 bg-white rounded-lg overflow-hidden">
+            <div className="flex flex-col xl:flex-row shadow hover:shadow-md w-3/5 bg-white rounded-lg">
                 {photo && (
                     <Image
                         className="object-cover w-1/2"
@@ -50,11 +50,11 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                         alt="Flower and sky"
                     />
                 )}
-                <div className="relative w-1/2 p-4">
+                <div className="relative w-1/2 p-4 overflow-hidden">
                     <h3 className="text-base md:text-xl font-medium text-gray-800">
                         {detail.title}
                     </h3>
-                    <p className="mt-4 text-base md:text-lg text-gray-600">
+                    <p className="whitespace-pre-line mt-4 text-base md:text-lg text-gray-600">
                         {detail.description}
                     </p>
                     <button
@@ -66,16 +66,16 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                 </div>
             </div>
             <div
-                className={`${show} fixed w-screen h-screen flex justify-center items-center top-0 left-0 bg-black/50`}
+                className={`${show} fixed w-screen h-screen flex justify-center items-center top-0 left-0 bg-black/50 z-10`}
             >
-                <div className="w-full h-full container p-8 flex flex-col gap-8 items-center justify-between overflow-auto">
+                <div className="w-full h-full container p-8 flex flex-col gap-2 items-center overflow-auto bg-white">
                     <button
                         onClick={() => setShow('hidden')}
                         type="button"
                         className="self-end"
                     >
                         <svg
-                            className="fill-white w-6 h-6"
+                            className="fill-black w-6 h-6"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 121.31 122.876"
                             xmlSpace="preserve"
@@ -89,8 +89,10 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                             </g>
                         </svg>
                     </button>
-                    <p className="rounded-xl bg-white p-2">{detail.longText}</p>
-                    <div className="grid grid-cols-2 gap-2 rounded-xl bg-white p-2 lg:grid-cols-4 w-full">
+                    <p className="whitespace-pre-line rounded-xl p-2">
+                        {detail.longText}
+                    </p>
+                    <div className="grid grid-cols-2 gap-2 rounded-xl p-2 lg:grid-cols-4 w-full">
                         {gallery &&
                             gallery.map((item, index) => (
                                 <div
@@ -101,6 +103,12 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                                 </div>
                             ))}
                     </div>
+                    <button
+                        onClick={() => setShow('hidden')}
+                        className="mt-4 py-2 px-3 rounded-lg bg-gray-500 hover:bg-gray-600 font-bold text-white shadow transition ease-in-out duration-200 translate-10"
+                    >
+                        Close
+                    </button>
                 </div>
             </div>
         </>
