@@ -32,6 +32,9 @@ const ModalPhoto: NextComponentType<NextPageContext, {}, Props> = (
                     height={500}
                     className="mx-auto h-full w-auto object-contain"
                     alt="image"
+                    priority
+                    placeholder="blur"
+                    blurDataURL="/images/placeholder-image.webp"
                 />
             )}
         </>
