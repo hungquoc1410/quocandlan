@@ -1,8 +1,12 @@
+import Card from '@/components/card'
+import Clock from '@/components/clock'
+import { cardDetails } from '@/utils/cardDetails'
 import { Roboto } from '@next/font/google'
 import Head from 'next/head'
-
-import Clock from '@/components/clock'
-import Timeline from '@/components/timeline'
+import { Mousewheel, Pagination } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const roboto = Roboto({
     weight: '400',
@@ -24,14 +28,33 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className={`bg-fixed bg-center bg-cover ${roboto.className}`}>
-                <section className="w-screen h-screen flex flex-col justify-center items-center bg-black/50">
-                    <div className="w-full h-full flex justify-center items-center container">
-                        <Clock />
-                    </div>
-                </section>
-                <section className="w-full bg-gray-200 flex justify-center items-center">
-                    <Timeline />
+            <main
+                className={`h-screen w-full bg-cover bg-fixed bg-center ${roboto.className}`}
+            >
+                <section className="flex h-screen w-screen flex-col items-center justify-center bg-black/50">
+                    <Swiper
+                        direction={'vertical'}
+                        slidesPerView={1}
+                        centeredSlides={true}
+                        mousewheel={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        loop={true}
+                        modules={[Mousewheel, Pagination]}
+                        className="h-full w-full"
+                    >
+                        <SwiperSlide>
+                            <Clock />
+                        </SwiperSlide>
+                        {cardDetails.map((detail) => {
+                            return (
+                                <SwiperSlide key={detail.name}>
+                                    <Card detail={detail} />
+                                </SwiperSlide>
+                            )
+                        })}
+                    </Swiper>
                 </section>
             </main>
         </>

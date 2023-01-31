@@ -3,14 +3,9 @@
     "trailingComma": "es5",
     "singleQuote": true,
     "tabWidth": 4,
-    "useTabs": false,
-    "importOrder": [
-        "^react(.*)",
-        "antd/(.*)",
-        "<THIRD_PARTY_MODULES>",
-        "@/(.*)",
-        "^[./]"
-    ],
+    "importOrder": ["^components/(.*)$", "^[./]"],
     "importOrderSeparation": true,
-    "plugins": ["prettier-plugin-tailwindcss"]
+    "importOrderSortSpecifiers": true,
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "pluginSearchDirs": false
 }
