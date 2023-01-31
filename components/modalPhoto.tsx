@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { StorageReference, getDownloadURL } from 'firebase/storage'
+import { useEffect, useState } from 'react'
+import { getDownloadURL,StorageReference } from 'firebase/storage'
 import type { NextComponentType, NextPageContext } from 'next'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
 
 interface Props {
     item: StorageReference
@@ -30,7 +30,7 @@ const ModalPhoto: NextComponentType<NextPageContext, {}, Props> = (
                     src={url}
                     width={500}
                     height={500}
-                    className="object-cover w-full"
+                    className="w-full object-cover"
                     alt="image"
                 />
             )}

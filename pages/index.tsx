@@ -1,5 +1,6 @@
-import Head from 'next/head'
 import { Roboto } from '@next/font/google'
+import Head from 'next/head'
+
 import Clock from '@/components/clock'
 import Timeline from '@/components/timeline'
 

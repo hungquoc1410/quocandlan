@@ -1,5 +1,5 @@
+import { useEffect,useState } from 'react'
 import type { NextComponentType, NextPageContext } from 'next'
-import { useState, useEffect } from 'react'
 
 interface Props {}
 
@@ -35,21 +35,21 @@ const Clock: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
     }, [])
 
     return (
-        <div className="w-full h-full flex justify-center items-center text-gray-50 text-2xl xl:text-5xl">
-            <div className="flex gap-6 xl:gap-14 justify-center items-center">
-                <div className="flex flex-col justify-center items-center gap-1">
+        <div className="flex h-full w-full items-center justify-center text-2xl text-gray-50 xl:text-5xl">
+            <div className="flex items-center justify-center gap-6 xl:gap-14">
+                <div className="flex flex-col items-center justify-center gap-1">
                     <span className="time">{days}</span>
                     <span className="label text-xl xl:text-3xl">Days</span>
                 </div>
-                <div className="flex flex-col justify-center items-center gap-1">
+                <div className="flex flex-col items-center justify-center gap-1">
                     <span className="time">{hours}</span>
                     <span className="label text-xl xl:text-3xl">Hours</span>
                 </div>
-                <div className="flex flex-col justify-center items-center gap-1">
+                <div className="flex flex-col items-center justify-center gap-1">
                     <span className="time">{minutes}</span>
                     <span className="label text-xl xl:text-3xl">Minutes</span>
                 </div>
-                <div className="flex flex-col justify-center items-center gap-1">
+                <div className="flex flex-col items-center justify-center gap-1">
                     <span className="time">{seconds}</span>
                     <span className="label text-xl xl:text-3xl">Seconds</span>
                 </div>

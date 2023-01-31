@@ -1,15 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
-import type { NextComponentType, NextPageContext } from 'next'
+import { useEffect, useState } from 'react'
 import {
-    StorageReference,
     getDownloadURL,
     listAll,
     ref,
+    StorageReference,
 } from 'firebase/storage'
-import { storage } from '@/utils/firebase'
-import { useEffect, useState } from 'react'
-import ModalPhoto from './modalPhoto'
+import type { NextComponentType, NextPageContext } from 'next'
 import Image from 'next/image'
+
+import { storage } from '@/utils/firebase'
+
+import ModalPhoto from './modalPhoto'
 
 interface Props {
     detail: {
@@ -40,42 +42,42 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
 
     return (
         <>
-            <div className="flex flex-col xl:flex-row shadow hover:shadow-md w-11/12 xl:w-3/5 bg-white rounded-lg">
+            <div className="flex w-11/12 flex-col rounded-lg bg-white shadow hover:shadow-md xl:w-3/5 xl:flex-row">
                 {photo && (
                     <Image
-                        className="object-cover w-full xl:w-1/2"
+                        className="w-full object-cover xl:w-1/2"
                         src={photo}
                         width={500}
                         height={500}
                         alt="Flower and sky"
                     />
                 )}
-                <div className="relative w-full xl:w-1/2 p-4">
-                    <h3 className="text-base md:text-xl font-medium text-gray-800">
+                <div className="relative w-full p-4 xl:w-1/2">
+                    <h3 className="text-base font-medium text-gray-800 md:text-xl">
                         {detail.title}
                     </h3>
-                    <p className="whitespace-pre-line mt-4 text-base md:text-lg text-gray-600">
+                    <p className="mt-4 whitespace-pre-line text-base text-gray-600 md:text-lg">
                         {detail.description}
                     </p>
                     <button
                         onClick={() => setShow('block')}
-                        className="mt-4 py-2 px-3 rounded-lg bg-gray-500 hover:bg-gray-600 font-bold text-white shadow transition ease-in-out duration-200 translate-10"
+                        className="translate-10 mt-4 rounded-lg bg-gray-500 py-2 px-3 font-bold text-white shadow transition duration-200 ease-in-out hover:bg-gray-600"
                     >
                         See More
                     </button>
                 </div>
             </div>
             <div
-                className={`${show} fixed w-screen h-screen flex justify-center items-center top-0 bottom-0 left-0 right-0 bg-black/50 z-10`}
+                className={`${show} fixed top-0 bottom-0 left-0 right-0 z-10 flex h-screen w-screen items-center justify-center bg-black/50`}
             >
-                <div className="relative w-full h-full container p-8 flex flex-col gap-2 items-center overflow-auto bg-white">
+                <div className="container relative flex h-full w-full flex-col items-center gap-2 overflow-auto bg-white p-8">
                     <button
                         onClick={() => setShow('hidden')}
                         type="button"
                         className="self-end"
                     >
                         <svg
-                            className="fill-black w-6 h-6"
+                            className="h-6 w-6 fill-black"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 121.31 122.876"
                             xmlSpace="preserve"
@@ -92,11 +94,11 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                     <p className="whitespace-pre-line rounded-xl p-2">
                         {detail.longText}
                     </p>
-                    <div className="grid grid-cols-2 gap-2 rounded-xl p-2 lg:grid-cols-4 w-full">
+                    <div className="grid w-full grid-cols-2 gap-2 rounded-xl p-2 lg:grid-cols-4">
                         {gallery &&
                             gallery.map((item, index) => (
                                 <div
-                                    className="relative rounded-xl flex justify-center items-center"
+                                    className="relative flex items-center justify-center rounded-xl"
                                     key={`image_${index}`}
                                 >
                                     <ModalPhoto item={item} />
@@ -105,7 +107,7 @@ const Card: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                     </div>
                     <button
                         onClick={() => setShow('hidden')}
-                        className="py-2 px-3 rounded-lg bg-gray-500 hover:bg-gray-600 font-bold text-white shadow transition ease-in-out duration-200 translate-10"
+                        className="translate-10 rounded-lg bg-gray-500 py-2 px-3 font-bold text-white shadow transition duration-200 ease-in-out hover:bg-gray-600"
                     >
                         Close
                     </button>

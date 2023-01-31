@@ -1,6 +1,8 @@
 import type { NextComponentType, NextPageContext } from 'next'
-import Card from './card'
+
 import { cardDetails } from '@/utils/cardDetails'
+
+import Card from './card'
 
 interface Props {}
 
