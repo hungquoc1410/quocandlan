@@ -3,13 +3,13 @@
 /* Custom Style */
 
 @media (min-width: 768px) {
-    main {
+    main section#clock {
         background-image: url('/images/desktop-background.jpg');
     }
 }
 
 @media (max-width: 768px) {
-    main {
+    main section#clock {
         background-image: url('/images/mobile-background.jpg');
     }
 }

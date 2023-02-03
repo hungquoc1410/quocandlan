@@ -1,12 +1,7 @@
-import Card from '@/components/card'
-import Clock from '@/components/clock'
-import { cardDetails } from '@/utils/cardDetails'
+import Clock from '@/components/Clock'
+import Timeline from '@/components/Timeline'
 import { Roboto } from '@next/font/google'
 import Head from 'next/head'
-import { Mousewheel, Pagination } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import { Swiper, SwiperSlide } from 'swiper/react'
 
 const roboto = Roboto({
     weight: '400',
@@ -28,33 +23,12 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main
-                className={`h-screen w-full bg-cover bg-fixed bg-center ${roboto.className}`}
-            >
-                <section className="flex h-screen w-screen flex-col items-center justify-center bg-black/50">
-                    <Swiper
-                        direction={'vertical'}
-                        slidesPerView={1}
-                        centeredSlides={true}
-                        mousewheel={true}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        loop={true}
-                        modules={[Mousewheel, Pagination]}
-                        className="h-full w-full"
-                    >
-                        <SwiperSlide>
-                            <Clock />
-                        </SwiperSlide>
-                        {cardDetails.map((detail) => {
-                            return (
-                                <SwiperSlide key={detail.name}>
-                                    <Card detail={detail} />
-                                </SwiperSlide>
-                            )
-                        })}
-                    </Swiper>
+            <main className={`w-full ${roboto.className}`}>
+                <section id="clock" className="bg-cover bg-fixed bg-center">
+                    <Clock />
+                </section>
+                <section className="bg-black p-12">
+                    <Timeline />
                 </section>
             </main>
         </>

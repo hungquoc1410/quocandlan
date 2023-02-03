@@ -35,7 +35,7 @@ const Clock: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
     }, [])
 
     return (
-        <div className="flex h-full w-full items-center justify-center text-2xl text-gray-50 xl:text-5xl">
+        <div className="flex h-screen w-full items-center justify-center bg-black/50 text-2xl text-gray-50 xl:text-5xl">
             <div className="flex items-center justify-center gap-6 xl:gap-14">
                 <div className="flex flex-col items-center justify-center gap-1">
                     <span className="time">{days}</span>

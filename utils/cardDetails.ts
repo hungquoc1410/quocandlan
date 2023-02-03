@@ -1,7 +1,7 @@
 export const cardDetails = [
     {
         name: '20220127',
-        title: 'January 27th, 2022',
+        time: 'January 27th, 2022',
         description: 'Những cuộc trò chuyện đầu tiên.',
         longText: `Vào ngày hôm đó, mình biết được em thích nói chuyện để tìm hiểu về tam quan của đôi bên và tình cờ mình lại biết một trang TikTok có cung cấp những câu hỏi mở phù hợp.
             Thế là mình bắt đầu hành trình tìm hiểu em và em cũng có thể hiểu hơn về mình.
@@ -15,7 +15,7 @@ export const cardDetails = [
     },
     {
         name: '20220227',
-        title: 'Febuary 27th, 2022',
+        time: 'Febuary 27th, 2022',
         description: 'Những tin nhắn khiến mình vui.',
         longText: `Mình đã tỏ tình em vào một ngày nọ.
             Tuy không thành công, nhưng em bảo rằng em muốn được tỏ tình trực tiếp thì mình cũng hiểu ý em.
@@ -27,7 +27,7 @@ export const cardDetails = [
     },
     {
         name: '20220309',
-        title: 'March 9th, 2022',
+        time: 'March 9th, 2022',
         description: 'Ngày mình tỏ tình.\nNgày tụi mình thành đôi.',
         longText: `Đợi mãi cũng đến được ngày em vào thành phố.
             Mình chuẩn bị hết mọi thứ, ngay cả bài thơ dành cho em để làm em ngạc nhiên.
@@ -45,7 +45,7 @@ export const cardDetails = [
     },
     {
         name: '20220313',
-        title: 'March 13th, 2022',
+        time: 'March 13th, 2022',
         description: 'Lần đầu bé dẫn mình đi mua sắm.',
         longText: `
             Sau đó 1 tuần, vào một ngày đẹp trời. Mình quyết định rủ bé chụp hình.
@@ -53,37 +53,37 @@ export const cardDetails = [
     },
     {
         name: '20220326',
-        title: 'Những lần hẹn hò.',
-        description: '',
+        time: '',
+        description: 'Những lần hẹn hò.',
         longText: ``,
     },
     {
         name: '20220329',
-        title: 'Những lần bé đặt đồ ăn cho mình.',
-        description: '',
+        time: '',
+        description: 'Những lần bé đặt đồ ăn cho mình.',
         longText: ``,
     },
     {
         name: '20220403',
-        title: 'Những lần tụi mình ăn ngoài.',
-        description: '',
+        time: '',
+        description: 'Những lần tụi mình ăn ngoài.',
         longText: ``,
     },
     {
         name: '20220517',
-        title: 'Những lần bé nấu cho mình ăn.',
-        description: '',
+        time: '',
+        description: 'Những lần bé nấu cho mình ăn.',
         longText: ``,
     },
     {
         name: '20220528',
-        title: 'May 28th, 2022',
+        time: 'May 28th, 2022',
         description: 'Lần mình dẫn bé đi chụp hình ở Thảo Cầm Viên.',
         longText: ``,
     },
     {
         name: '20220814',
-        title: 'August 14th, 2022',
+        time: 'August 14th, 2022',
         description: 'Lần tụi mình đi Vũng Tàu.',
         longText: `Chuyến đi xa đầu tiên của tụi mình.
             Mọi chuyện đều diễn ra suôn sẻ. Tụi mình đã có thời gian vui vẻ bên nhau.
@@ -93,7 +93,7 @@ export const cardDetails = [
     },
     {
         name: '20221015',
-        title: 'October 15th, 2022',
+        time: 'October 15th, 2022',
         description: 'Lần bé tổ chức sinh nhật cho mình.',
         longText: `Mình từ nhỏ đã vốn không tổ chức sinh nhật vì điều kiện gia đình.
             Nhưng mà hôm ấy, và cả những hôm trước, bé đã bí mật đi tổ chức bữa tiệc nho nhỏ này.
@@ -108,13 +108,13 @@ export const cardDetails = [
     },
     {
         name: '20221120',
-        title: 'November 20th, 2022',
+        time: 'November 20th, 2022',
         description: 'Lần đầu tụi mình chụp hình giáng sinh.',
         longText: ``,
     },
     {
         name: '20230114',
-        title: 'January 14th, 2023',
+        time: 'January 14th, 2023',
         description: 'Lần đầu tụi mình chụp hình áo dài tết.',
         longText: ``,
     },
