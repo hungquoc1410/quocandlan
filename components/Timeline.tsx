@@ -1,5 +1,6 @@
 import { cardDetails } from '@/utils/cardDetails'
 import type { NextComponentType, NextPageContext } from 'next'
+import Link from 'next/link'
 
 interface Props {}
 
@@ -19,15 +20,15 @@ const Timeline: NextComponentType<NextPageContext, {}, Props> = (
                             <time className="ml-2 mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                 {detail.time}
                             </time>
-                            <p className="ml-2 mb-4 overflow-hidden max-w-md text-ellipsis whitespace-nowrap text-base font-normal text-gray-400">
+                            <p className="ml-2 mb-4 max-w-md overflow-hidden text-ellipsis whitespace-nowrap text-base font-normal text-gray-400">
                                 {detail.longText}
                             </p>
-                            <a
-                                href="#"
+                            <Link
+                                href={`/date/${detail.name}`}
                                 className="ml-2 inline-flex items-center rounded-lg border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-gray-400 hover:bg-gray-700 hover:text-white focus:z-10 focus:text-yellow-700 focus:outline-none focus:ring-4 focus:ring-gray-700"
                             >
                                 Read More &gt;&gt;
-                            </a>
+                            </Link>
                         </li>
                     )
                 })}
