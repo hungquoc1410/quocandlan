@@ -2,17 +2,33 @@
 
 /* Custom Style */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     main,
     main section#clock {
         background-image: url('/images/desktop-background.jpg');
     }
+
+    p#long_text {
+        max-width: 40vw;
+    }
+
+    #concept_photo {
+        height: 80vh;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     main,
     main section#clock {
         background-image: url('/images/mobile-background.jpg');
+    }
+
+    p#long_text {
+        max-width: 60vw;
+    }
+
+    #concept_photo {
+        max-height: 80vh;
     }
 }
 

@@ -36,22 +36,22 @@ const Clock: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
 
     return (
         <div className="flex h-screen w-full items-center justify-center bg-black/50 text-2xl text-gray-50 xl:text-5xl">
-            <div className="flex items-center justify-center gap-6 xl:gap-14">
+            <div className="grid grid-cols-4 gap-4 xl:gap-14">
                 <div className="flex flex-col items-center justify-center gap-1">
-                    <span className="time">{days}</span>
-                    <span className="label text-xl xl:text-3xl">Days</span>
+                    <span className="time text-4xl lg:text-6xl">{days}</span>
+                    <span className="label text-base xl:text-2xl">Days</span>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-1">
-                    <span className="time">{hours}</span>
-                    <span className="label text-xl xl:text-3xl">Hours</span>
+                    <span className="time text-4xl lg:text-6xl">{hours}</span>
+                    <span className="label text-base xl:text-2xl">Hours</span>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-1">
-                    <span className="time">{minutes}</span>
-                    <span className="label text-xl xl:text-3xl">Minutes</span>
+                    <span className="time text-4xl lg:text-6xl">{minutes}</span>
+                    <span className="label text-base xl:text-2xl">Minutes</span>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-1">
-                    <span className="time">{seconds}</span>
-                    <span className="label text-xl xl:text-3xl">Seconds</span>
+                    <span className="time text-4xl lg:text-6xl">{seconds}</span>
+                    <span className="label text-base xl:text-2xl">Seconds</span>
                 </div>
             </div>
         </div>
