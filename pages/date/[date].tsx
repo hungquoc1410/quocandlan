@@ -1,15 +1,88 @@
 import ConceptPhoto from '@/components/ConceptPhoto'
-import { cardDetails } from '@/utils/cardDetails'
-import type { NextComponentType, NextPageContext } from 'next'
+import { db, storage } from '@/utils/firebase'
+import { doc, getDoc } from 'firebase/firestore'
+import { ref, listAll, getDownloadURL } from 'firebase/storage'
+import type {
+    GetStaticPaths,
+    GetStaticProps,
+    NextComponentType,
+    NextPageContext,
+} from 'next'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
-interface Props {}
+interface Props {
+    data: string[]
+    detail: {
+        name?: string
+        description?: string
+        longText?: string
+        time?: string
+    }
+}
 
-const Date: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
-    const router = useRouter()
-    const { query } = router
-    const detail = cardDetails.filter((d) => d.name == query.date)[0]
+const details = [
+    '20220127',
+    '20220227',
+    '20220309',
+    '20220313',
+    '20220326',
+    '20220329',
+    '20220403',
+    '20220517',
+    '20220528',
+    '20220814',
+    '20221015',
+    '20221120',
+    '20230114',
+]
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const paths = details.map((detail) => {
+        return { params: { date: detail } }
+    })
+    return {
+        paths: paths,
+        fallback: 'blocking',
+    }
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    if (context.params) {
+        const galleryRef = ref(storage, `${String(context.params.date)}`)
+        const gallerySnap = await listAll(galleryRef)
+        let i = 0
+        let data: string[] = []
+
+        while (i < gallerySnap.items.length) {
+            const url = await getDownloadURL(gallerySnap.items[i])
+            data.push(url)
+            i++
+        }
+
+        const docRef = doc(db, 'content', String(context.params.date))
+        const docSnap = await getDoc(docRef)
+
+        if (docSnap.exists()) {
+            return {
+                props: {
+                    data: data,
+                    detail: { ...docSnap.data(), name: docSnap.id },
+                },
+            }
+        } else {
+            return { props: { data: data, detail: {} } }
+        }
+    }
+
+    return {
+        props: { data: [] },
+    }
+}
+
+const Date: NextComponentType<NextPageContext, {}, Props> = ({
+    data,
+    detail,
+}) => {
     const { description, time, longText } = detail
 
     return (
@@ -37,8 +110,14 @@ const Date: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                     </p>
                 )}
                 <div className="mb-4 flex flex-wrap justify-center gap-4">
-                    <ConceptPhoto imageUrl="/images/desktop-background.jpg" />
-                    <ConceptPhoto imageUrl="/images/mobile-background.jpg" />
+                    {data.map((image, index) => {
+                        return (
+                            <ConceptPhoto
+                                key={`image_${index}`}
+                                imageUrl={image}
+                            />
+                        )
+                    })}
                 </div>
             </div>
         </div>
