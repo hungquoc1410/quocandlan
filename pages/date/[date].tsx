@@ -34,6 +34,8 @@ const details = [
     '20221015',
     '20221120',
     '20230114',
+    '20230212',
+    '20230220',
 ]
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -104,12 +106,18 @@ const Date: NextComponentType<NextPageContext, {}, Props> = ({
                         {time}
                     </time>
                 )}
-                {longText && (
-                    <p className="mb-4 px-4 text-base font-normal text-gray-200">
-                        {longText}
-                    </p>
-                )}
-                <div className="mb-4 flex flex-wrap justify-center gap-4">
+                {longText &&
+                    longText.split('. ').map((text, index) => {
+                        return (
+                            <p
+                                key={`long_text_${index}`}
+                                className="mx-auto mb-2 px-4 text-base font-normal text-gray-200 lg:max-w-xl"
+                            >
+                                {text}
+                            </p>
+                        )
+                    })}
+                <div className="mt-6 mb-4 flex flex-wrap justify-center gap-4">
                     {data.map((image, index) => {
                         return (
                             <ConceptPhoto
